@@ -37,7 +37,6 @@ public class ChatterBoxController {
 
     @PostMapping("/chat")
     public void conversation() throws InterruptedException {
-//        System.out.println("\n"+CYAN+"Welcome to ChatterBox!\n\nAsk anything!\nOr type "+RESET+RED+"'exit'"+RESET+CYAN+"to exit.\n"+RESET);
 
         final String text1 = "Welcome to ChatterBox!\n\nAsk anything!\nOr type ";
         final String text2 = "'exit'";
@@ -83,8 +82,6 @@ public class ChatterBoxController {
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.getForObject("http://localhost:8080/chatterbox/chat?prompt=" + query, ChatterBoxResponse.class);
 
-//            System.out.println(CYAN+"ChatterBox:"+YELLOW+" Ask a follow-up or a new question. Type "+RESET+RED+"'exit'"+RESET+YELLOW+" to exit."+RESET);
-
 
             // streaming on console
             System.out.print(CYAN+"ChatterBox:"+YELLOW);
@@ -128,7 +125,6 @@ public class ChatterBoxController {
         }
 
         System.out.println(RESET+"\n");
-//        System.out.println("\n"+CYAN+"ChatterBox: "+YELLOW+answer+RESET+"\n");
 
         conversationHistory.add(new ChatterBoxMessage("assistant", answer));
     }
